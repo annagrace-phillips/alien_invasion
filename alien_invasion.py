@@ -82,6 +82,13 @@ class AlienInvasion:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
 
+    def _create_fleet(self):
+        """Create the fleet of aliens."""
+        #make an alien
+        alien = Alien(self)
+        self.aliens.add(alien)
+        
+    
     def _update_screen(self):
         """Update images on the screen & flip to the new screen."""  
         #redraw the screen during each pass through the loop
@@ -90,13 +97,6 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.aliens.draw(self.screen)
-
-    def _create_fleet(self):
-        """Create the fleet of aliens."""
-        #make an alien
-        alien = Alien(self)
-        self.aliens.add(alien)
-        
 
         #make the most recently drawn screen visible
         pygame.display.flip()
